@@ -1,0 +1,21 @@
+<script src="./currying.js" type="application/javascript"></script>
+<script>
+var log = function(){
+	var args = [].slice.call(arguments,0);
+	console.log.apply(console,args);
+};
+
+var testlog = currying(log,"test");
+
+var sum = function(a,b,c){
+	return a+b+c;
+};
+
+var sum1 = currying(sum,1);
+testlog("1+2+3",sum1(2,3));
+testlog(sum1(3,5));
+
+
+
+
+</script>
